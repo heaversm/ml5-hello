@@ -1,0 +1,71 @@
+<!--
+ Copyright (c) 2018 ml5
+ 
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Style Transfer Image Example using p5.js</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+  <script src="/assets/js/lib/ml5.js" type="text/javascript"></script>
+  
+  <style>
+  img {
+    width: 250px;
+    height: 250px;
+    display: inline;
+  }
+  </style>
+</head>
+
+
+<body>
+  <h1>Style Transfer to Sequence of Images</h1>
+  <p id="statusMsg">Loading Models...</p>
+  <button id="transferBtn">Transfer!</button>
+  
+  <div id="style">
+    <p>Style:</p>
+    <img src="img/kinect.jpg" alt="style img" id>
+    <img src="img/kinect-dance.gif" alt="style img">
+    <img src="img/kinect-dance-xfer.gif" alt="style img">
+  </div>
+  
+  <div class="input-images">
+    <p>Inputs:</p>
+    <img src="img/dance/01.jpg" alt="input img" id="inputImg1">
+    <img src="img/dance/02.jpg" alt="input img" id="inputImg2">
+    <img src="img/dance/03.jpg" alt="input img" id="inputImg3">
+    <img src="img/dance/04.jpg" alt="input img" id="inputImg4">
+    <img src="img/dance/05.jpg" alt="input img" id="inputImg5">
+    <img src="img/dance/06.jpg" alt="input img" id="inputImg6">
+    <img src="img/dance/07.jpg" alt="input img" id="inputImg7">
+    <img src="img/dance/08.jpg" alt="input img" id="inputImg8">
+    <img src="img/dance/09.jpg" alt="input img" id="inputImg9">
+    <img src="img/dance/10.jpg" alt="input img" id="inputImg10">
+    <img src="img/dance/11.jpg" alt="input img" id="inputImg11">
+    <img src="img/dance/12.jpg" alt="input img" id="inputImg12">
+    <img src="img/dance/13.jpg" alt="input img" id="inputImg13">
+    <img src="img/dance/14.jpg" alt="input img" id="inputImg14">
+    <img src="img/dance/15.jpg" alt="input img" id="inputImg15">
+    <img src="img/dance/16.jpg" alt="input img" id="inputImg16">
+    <img src="img/dance/17.jpg" alt="input img" id="inputImg17">
+    <img src="img/dance/18.jpg" alt="input img" id="inputImg18">
+    <img src="img/dance/19.jpg" alt="input img" id="inputImg19">
+  </div>
+  
+
+  <div id="ouput-images">
+    <p>Outputs:</p>
+  </div>
+
+  <script src="js/02-style-transfer-sequence.js"></script>
+</body>
+
+</html>

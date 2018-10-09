@@ -1,3 +1,5 @@
 *.json filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mag filter=lfs diff=lfs merge=lfs -text
+10-ai-jam/**/*.mp3 filter=lfs diff=lfs merge=lfs -text

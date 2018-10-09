@@ -1,0 +1,43 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*:focus {
+    outline: 0;
+}
+
+textarea {
+    border: 1px solid rgb(155, 155, 155);
+    width: 400px;
+    height: 100px;
+    padding: 12px 12px;
+    font-size: 12px;
+}
+
+#result{
+  text-align: center;
+  line-height: 2rem;
+}
+
+#container {
+    text-align: center;
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+#original {
+    background-color: #EEE;
+    padding: 4px 0px 4px 4px
+}
+
+#prediction {
+    background-color: rgba(37, 146, 236, 0.349);
+    padding: 4px 0px 4px 0px
+}
+
+#status{
+  font-size: 10px;
+  position: relative;
+  top: -10px;
+  float: right;
+}

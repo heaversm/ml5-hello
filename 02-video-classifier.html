@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head>
+      <title>Video Classification</title>
+      <script src="assets/js/lib/ml5.min.js"></script>
+    </head>
+
+  <body>
+    <h1>Video classification using MobileNet</h1>
+    <p id="loading">Loading Model</p>
+    <p>The MobileNet model labeled this as
+    <span id="result">...</span> with a confidence of
+    <span id="probability">...</span></p>
+    
+    <video src="assets/videos/bus.m4v" id="video" controls width="640" height="480"></video>
+
+    <script>
+      // The image we want to classify
+      const video = document.getElementById('video');
+      // The result tag in the HTML
+      const result = document.getElementById('result');
+      // The probability tag in the HTML
+      const probability = document.getElementById('probability');
+      const loading = document.getElementById('loading');
+      
+
+      ml5.imageClassifier('MobileNet', video)
+      .then((classifier) => {
+        loading.innerText = "";
+        video.play();
+        loop(classifier);
+      });
+
+      const loop = (classifier) => {
+        classifier.predict()
+          .then(results => {
+            result.innerText = results[0].className;
+            probability.innerText = results[0].probability.toFixed(4);
+            loop(classifier) // Call again to create a loop
+          })
+      }
+    </script>
+  </body>
+</html>
