@@ -16,6 +16,7 @@ let slider;
 let samples = 0;
 let positionX = 140;
 let valX = 0;
+let valFontSize = 10;
 
 function setup() {
   createCanvas(340, 280);
@@ -36,7 +37,9 @@ function draw() {
   noStroke();
   fill(255, 0, 0);
   rect(positionX, 120, 50, 50);
-  select('#font-container').style('font-variation-settings', `'wght' ${valX}`)
+  const fc = select('#font-container');
+  fc.style('font-variation-settings', `'wght' ${valX}`);
+  fc.style('font-size', `${valFontSize}px`);
 }
 
 // A function to be called when the model has been loaded
@@ -86,6 +89,7 @@ function gotResults(err, result) {
   }
   positionX = map(result, 0, 1, 0, width);
   valX = map(result, 0, 1, 0, 1000);
+  valFontSize = map(result, 0, 1, 12, 100);
   slider.value(result);
   predict();
 }
