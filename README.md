@@ -1,6 +1,6 @@
 # Machine Learning in Art, Sound, and Language
 
-Class writeup can be found [here](https://paper.dropbox.com/doc/Machine-Learning-Class-Notes--AOqHaKMAig5xa8ZqfE9FscqwAQ-07nWKBUXrMVSOTxK04W22).
+Class writeup can be found [here](https://paper.dropbox.com/doc/00-Intro-to-Machine-Learning-a6zo3r3gNN9I6VThcb3Yw).
 
 
 **Course**: DSI 450
@@ -61,7 +61,7 @@ Machine Learning in Sound and Music
 - Speech Synthesis
 - Lyrebird
 - Pitch Detection
-- Magenta / Nsynth
+- AI Duet
 
 Recap
 Evaluations

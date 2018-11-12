@@ -30,7 +30,7 @@ function setup() {
   transferBtn.mousePressed(transferImages);
 
   // Create style method
-  style1 = ml5.styleTransfer('models/kinect', modelLoaded);
+  style1 = ml5.styleTransfer('models/wave', modelLoaded);
 }
 
 // A function to be called when the models have loaded

@@ -37,7 +37,10 @@
           .then(results => {
             result.innerText = results[0].className;
             probability.innerText = results[0].probability.toFixed(4);
-            loop(classifier) // Call again to create a loop
+            setTimeout(
+              function(){
+                loop(classifier) // Call again to create a loop
+              },1000);
           })
       }
     </script>
