@@ -15,6 +15,8 @@ let loss;
 let slider;
 let samples = 0;
 let positionX = 140;
+let fontSize = 10;
+let fontWidth = 100;
 
 function setup() {
   createCanvas(340, 280);
@@ -31,10 +33,13 @@ function setup() {
 }
 
 function draw() {
+
   image(video, 0, 0, 340, 280);
   noStroke();
   fill(255, 0, 0);
   rect(positionX, 120, 50, 50);
+  select('#font-container').style('font-size',fontSize);
+  select('#font-container').style('font-variation-settings', `wght ${fontWidth}`);
 }
 
 // A function to be called when the model has been loaded

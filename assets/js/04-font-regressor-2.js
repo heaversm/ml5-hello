@@ -8,22 +8,21 @@ ml5 Example
 Creating a regression extracting features of MobileNet. Build with p5js.
 === */
 
-//https://github.com/TypeNetwork/Decovar
-//https://github.com/TypeNetwork/Amstelvar/blob/master/sources/Amstelvar%20Design%20Space%20Grist/Amstelvar-Roman.designspace
-//https://github.com/Monotype/Monotype_prototype_variable_fonts/tree/master/AvenirNext
-
 let featureExtractor;
 let regressor;
 let video;
 let loss;
 let slider;
 let samples = 0;
-let positionX = 140;
-let valX = 0;
-let valFontSize = 10;
+let fontSize = 10;
+let fontWidth = 100;
+let lastResult = .5;
+let resultThreshold = .25;
 
 function setup() {
-  createCanvas(340, 280);
+  var canvas = createCanvas(340, 280);
+  canvas.parent('canvasContainer');
+
   // Create a video element
   video = createCapture(VIDEO);
   // Append it to the videoContainer DOM element
@@ -37,13 +36,10 @@ function setup() {
 }
 
 function draw() {
+
   image(video, 0, 0, 340, 280);
-  noStroke();
-  fill(255, 0, 0);
-  rect(positionX, 120, 50, 50);
-  const fc = select('#font-container');
-  fc.style('font-variation-settings', `'SKLA' ${valX}`);
-  /*fc.style('font-size', `${valFontSize}px`);*/
+  select('#font-container').style('font-size',fontSize);
+  select('#font-container').style('font-variation-settings', `wght ${fontWidth}`);
 }
 
 // A function to be called when the model has been loaded
@@ -88,12 +84,16 @@ function setupButtons() {
 
 // Show the results
 function gotResults(err, result) {
+  if (Math.abs(result-lastResult) > resultThreshold){
+    
+    fontWidth = map(result, 0, 1, 0, 1000);
+    fontSize = map(result, 0, 1, 10, 100);
+    slider.value(result);
+    lastResult = result;
+  }
   if (err) {
     console.error(err);
   }
-  positionX = map(result, 0, 1, 0, width);
-  valX = map(result, 0, 1, 0, 1000);
-  valFontSize = map(result, 0, 1, 0, 1000);
-  slider.value(result);
+  
   predict();
 }
