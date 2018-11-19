@@ -28,19 +28,26 @@ function setup() {
   story.elt.addEventListener('keyup',(e)=>{
     //console.log(e.keyCode);
     if (e.keyCode === 32){ //spacebar
-      const sentence = story.value(); 
+      let sentence = story.value(); 
       const words = sentence.split(" ");
       const lastWord = words[words.length -2];
       word2Vec.nearest(lastWord, (err, result) => {
         let output = '';
         if (result) {
           for (let i = 0; i < result.length; i++) {
-            output += result[i].word + '<br/>';
+            output += '<span class="suggestion">' + result[i].word + '</span>';
           }
         } else {
           output = 'No word vector found';
         }
         nearResults.html(output);
+        $('.suggestion').on('click',(e)=>{
+          const lastIndex = sentence.lastIndexOf(lastWord);
+          sentence = sentence.substr(0, lastIndex);
+          sentence = sentence += `${$(e.target).text()} `;
+          story.value(sentence);
+          $('#story').focus();
+        })
       });
     }
   });
